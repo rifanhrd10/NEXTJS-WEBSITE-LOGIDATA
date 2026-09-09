@@ -284,19 +284,21 @@ body {
 }
 
 .hero-copy {
-  animation: hero-copy-in 0.75s both cubic-bezier(0.22, 1, 0.36, 1);
+  animation: hero-copy-in 1.25s both cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .hero-media {
-  animation: hero-media-in 0.9s 0.1s both cubic-bezier(0.22, 1, 0.36, 1);
+  animation: hero-media-in 1.45s 0.25s both cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .hero-badge {
-  animation: badge-float 4s 1s ease-in-out infinite;
+  animation:
+    hero-badge-in 1s 0.95s both cubic-bezier(0.22, 1, 0.36, 1),
+    badge-float 5.5s 1.95s ease-in-out infinite;
 }
 
 .brand-name {
-  animation: brand-in 0.55s both ease-out;
+  animation: brand-in 0.8s both ease-out;
   transition: color 220ms ease, transform 220ms ease;
 }
 
@@ -374,6 +376,11 @@ body {
 @keyframes hero-media-in {
   from { opacity: 0; transform: translateX(28px) scale(0.98); }
   to { opacity: 1; transform: translateX(0) scale(1); }
+}
+
+@keyframes hero-badge-in {
+  from { opacity: 0; transform: translateY(14px) scale(0.94); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
 }
 
 @keyframes badge-float {
