@@ -14,6 +14,7 @@
 # next.js
 /.next/
 /.vinext/
+/.vite/
 /out/
 
 # misc
@@ -31,8 +32,9 @@ yarn-error.log*
 
 # deployment and generated files
 .vercel
-next-env.d.ts
 /dist/
+/out.zip
 /.wrangler/
 /outputs/
 /work/
+*.tsbuildinfo

@@ -202,24 +202,53 @@ body {
   }
 
   .service-card {
-    @apply relative overflow-hidden rounded-[1.4rem] border border-slate-200 bg-white p-6 shadow-[0_10px_35px_rgba(15,47,77,.05)] transition duration-300 hover:-translate-y-1.5 hover:border-brand-blue/25 hover:shadow-[0_22px_55px_rgba(15,47,77,.11)] sm:p-7;
-  }
-
-  .service-card::before {
-    content: '';
-    @apply absolute inset-x-0 top-0 h-1 origin-left scale-x-0 bg-gradient-to-r from-brand-blue to-brand-green transition-transform duration-300;
-  }
-
-  .service-card:hover::before {
-    @apply scale-x-100;
+    @apply rounded-[1.25rem] border border-slate-200 bg-white p-6 shadow-[0_8px_24px_rgba(15,47,77,.045)] transition-[border-color,box-shadow] duration-200 hover:border-brand-blue/25 hover:shadow-[0_12px_32px_rgba(15,47,77,.075)] sm:p-7;
   }
 
   .icon-box {
-    @apply grid size-16 place-items-center rounded-2xl bg-gradient-to-br from-sky-50 to-emerald-50 ring-1 ring-brand-blue/10;
+    @apply grid size-14 shrink-0 place-items-center rounded-xl border border-slate-200 bg-slate-50 transition-colors duration-200;
   }
 
-  .product-card {
-    @apply flex min-h-[84px] items-center gap-4 rounded-2xl border border-white/12 bg-white/7 p-4 text-white backdrop-blur-sm transition duration-300 hover:-translate-y-1 hover:border-white/25 hover:bg-white/12;
+  .icon-box-lucide {
+    display: block;
+  }
+
+  .icon-box-service {
+    @apply size-12 rounded-xl border-0 bg-sky-100/70 text-brand-blue;
+  }
+
+  .group:hover .icon-box-service {
+    @apply bg-sky-100 text-[#125f9c];
+  }
+
+  .icon-box-image {
+    display: block;
+    max-width: 65%;
+    height: auto;
+  }
+
+  .group:hover .icon-box {
+    @apply border-brand-blue/30 bg-sky-50;
+  }
+
+  .icon-box-sm {
+    @apply size-11 rounded-lg;
+  }
+
+  .icon-box-md {
+    @apply size-12;
+  }
+
+  .icon-box-process {
+    @apply size-12 lg:size-14;
+  }
+
+  .icon-box-on-dark {
+    @apply border-white/25 bg-white;
+  }
+
+  .product-showcase-card {
+    @apply shadow-[0_10px_36px_rgba(15,47,77,.06)] transition duration-300 hover:-translate-y-1.5 hover:border-brand-blue/25 hover:shadow-[0_24px_60px_rgba(15,47,77,.13)];
   }
 
   .benefit-card {
@@ -264,23 +293,19 @@ body {
   outline-offset: 2px;
 }
 
-.hero-grid {
-  background-image:
-    linear-gradient(rgb(27 114 182 / 5%) 1px, transparent 1px),
-    linear-gradient(90deg, rgb(27 114 182 / 5%) 1px, transparent 1px);
-  background-size: 44px 44px;
-  mask-image: linear-gradient(to bottom, black, transparent 90%);
-}
-
-.hero-glow {
-  background: radial-gradient(circle, rgb(27 114 182 / 14%), transparent 68%);
-  filter: blur(8px);
-}
-
-.hero-orb {
-  background: radial-gradient(circle, rgb(7 167 80 / 12%), transparent 68%);
-  filter: blur(6px);
-  animation: orb-float 8s ease-in-out infinite alternate;
+.hero-surface {
+  background:
+    radial-gradient(
+      ellipse 70% 58% at -8% 12%,
+      rgb(27 114 182 / 9%),
+      transparent 68%
+    ),
+    radial-gradient(
+      ellipse 56% 68% at 108% 18%,
+      rgb(7 167 80 / 7%),
+      transparent 70%
+    ),
+    linear-gradient(135deg, #fcfeff 0%, #f7fbfe 52%, #fbfefa 100%);
 }
 
 .hero-copy {
@@ -291,20 +316,32 @@ body {
   animation: hero-media-in 1.45s 0.25s both cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.hero-badge {
-  animation:
-    hero-badge-in 1s 0.95s both cubic-bezier(0.22, 1, 0.36, 1),
-    badge-float 5.5s 1.95s ease-in-out infinite;
-}
-
-.brand-name {
+.brand-logo-item {
+  display: flex;
+  min-height: 3.25rem;
+  align-items: center;
+  justify-content: center;
   animation: brand-in 0.8s both ease-out;
-  transition: color 220ms ease, transform 220ms ease;
 }
 
-.brand-name:hover {
-  color: #1b72b6;
-  transform: translateY(-2px);
+.brand-logo {
+  width: auto;
+  height: auto;
+  max-width: min(100%, 8.5rem);
+  max-height: 2rem;
+  object-fit: contain;
+  opacity: 0.78;
+  transition:
+    opacity 220ms ease,
+    transform 220ms ease,
+    filter 220ms ease;
+}
+
+.brand-logo-item:hover .brand-logo,
+.brand-logo-item:focus-within .brand-logo {
+  filter: saturate(1.08);
+  opacity: 1;
+  transform: translateY(-2px) scale(1.025);
 }
 
 .about-ring {
@@ -312,7 +349,6 @@ body {
 }
 
 .brand-panel-grid,
-.product-grid,
 .cta-grid {
   background-image:
     linear-gradient(rgb(255 255 255 / 5%) 1px, transparent 1px),
@@ -332,8 +368,27 @@ body {
   background: radial-gradient(circle, rgb(7 167 80 / 38%), transparent 68%);
 }
 
-.product-glow {
-  background: radial-gradient(circle, rgb(7 167 80 / 24%), transparent 68%);
+.product-showcase-orb {
+  background: radial-gradient(
+    circle,
+    rgb(27 114 182 / 12%),
+    rgb(7 167 80 / 6%) 42%,
+    transparent 70%
+  );
+}
+
+.product-image-stage {
+  background:
+    radial-gradient(circle at 82% 12%, rgb(7 167 80 / 9%), transparent 32%),
+    linear-gradient(145deg, #ffffff 0%, #f2f8fc 56%, #f3fbf7 100%);
+}
+
+.product-tabs-scroll {
+  scrollbar-width: none;
+}
+
+.product-tabs-scroll::-webkit-scrollbar {
+  display: none;
 }
 
 .process-list::before {
@@ -358,6 +413,7 @@ body {
 .reveal.is-visible {
   opacity: 1;
   transform: translateY(0);
+  will-change: auto;
 }
 
 .mobile-menu-overlay {
@@ -369,53 +425,93 @@ body {
 }
 
 @keyframes hero-copy-in {
-  from { opacity: 0; transform: translateY(24px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @keyframes hero-media-in {
-  from { opacity: 0; transform: translateX(28px) scale(0.98); }
-  to { opacity: 1; transform: translateX(0) scale(1); }
-}
-
-@keyframes hero-badge-in {
-  from { opacity: 0; transform: translateY(14px) scale(0.94); }
-  to { opacity: 1; transform: translateY(0) scale(1); }
-}
-
-@keyframes badge-float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-8px); }
-}
-
-@keyframes orb-float {
-  from { transform: translate3d(0, 0, 0) scale(1); }
-  to { transform: translate3d(-26px, 18px, 0) scale(1.08); }
+  from {
+    opacity: 0;
+    transform: translateX(28px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
 }
 
 @keyframes ring-drift {
-  from { transform: translate3d(0, 0, 0); }
-  to { transform: translate3d(-24px, 28px, 0); }
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-24px, 28px, 0);
+  }
+}
+
+@media (max-width: 767px) {
+  .hero-surface {
+    background:
+      radial-gradient(
+        ellipse 88% 42% at -12% 4%,
+        rgb(27 114 182 / 9%),
+        transparent 72%
+      ),
+      radial-gradient(
+        ellipse 78% 36% at 110% 68%,
+        rgb(7 167 80 / 6%),
+        transparent 72%
+      ),
+      linear-gradient(180deg, #fcfeff 0%, #f4f9fd 56%, #fbfefa 100%);
+  }
 }
 
 @keyframes brand-in {
-  from { opacity: 0; transform: translateY(8px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @keyframes menu-item-in {
-  from { opacity: 0; transform: translateX(12px); }
-  to { opacity: 1; transform: translateX(0); }
+  from {
+    opacity: 0;
+    transform: translateX(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 @keyframes menu-overlay-in {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 @keyframes menu-panel-in {
-  from { opacity: 0; transform: translateX(100%); }
-  to { opacity: 1; transform: translateX(0); }
+  from {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 @media (min-width: 640px) {
@@ -432,7 +528,11 @@ body {
     right: 9%;
     top: 22px;
     height: 2px;
-    background: linear-gradient(90deg, rgb(27 114 182 / 18%), rgb(7 167 80 / 32%));
+    background: linear-gradient(
+      90deg,
+      rgb(27 114 182 / 18%),
+      rgb(7 167 80 / 32%)
+    );
   }
 }
 

@@ -13,10 +13,22 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://logi-data-surabaya.rifan-hardiyan.chatgpt.site'),
+  metadataBase: new URL('https://rifans.web.id'),
   title: 'Logi Data Teknologi | Solusi IT Surabaya',
   description:
-    'Solusi pengadaan perangkat, instalasi, dan dukungan IT untuk bisnis, sekolah, dan instansi di Surabaya.',
+    'Solusi pengadaan perangkat dan dukungan IT untuk bisnis, sekolah, dan instansi di Surabaya.',
+  alternates: {
+    canonical: '/',
+  },
+  openGraph: {
+    title: 'Logi Data Teknologi | Solusi IT Surabaya',
+    description:
+      'Solusi pengadaan perangkat dan dukungan IT untuk bisnis, sekolah, dan instansi di Surabaya.',
+    url: '/',
+    locale: 'id_ID',
+    type: 'website',
+    siteName: 'Logi Data Teknologi',
+  },
   icons: {
     icon: '/assets/brand/logidata-square.png',
   },
