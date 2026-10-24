@@ -53,6 +53,7 @@ const services = [
 const productCategoryTabs = [
   { id: 'featured', label: 'Pilihan Utama' },
   { id: 'cctv', label: 'CCTV & Keamanan' },
+  { id: 'ups', label: 'UPS & Power' },
   { id: 'display', label: 'Interactive Display' },
   { id: 'projector', label: 'Proyektor' },
   { id: 'printer', label: 'Printer' },
@@ -65,6 +66,11 @@ const heroSlides = [
     name: 'Brateck TV Cart',
     src: '/assets/brochures/brateck.webp',
     alt: 'Brosur Brateck large screen telescopic TV cart',
+  },
+  {
+    name: 'Eaton 9A UPS',
+    src: '/assets/brochures/eaton-9a.webp',
+    alt: 'Brosur Eaton 9A UPS Advantage Series',
   },
   {
     name: 'Epson EcoTank L121',
@@ -206,6 +212,36 @@ const products = [
     image: '/assets/products/samsung-lh86.avif',
     description:
       'Layar berukuran besar untuk ruang kelas, aula, dan ruang kolaborasi.',
+    featured: false,
+  },
+  {
+    name: 'UPS Eaton 5A 700VA',
+    model: '5A700I-DIN',
+    brand: 'Eaton',
+    category: 'ups',
+    image: '/assets/products/eaton-5a700i-din.webp',
+    description:
+      'UPS line-interactive 700VA/360W untuk melindungi komputer dan perangkat kerja.',
+    featured: false,
+  },
+  {
+    name: 'UPS Eaton 5A 1200VA',
+    model: '5A1200I-DIN',
+    brand: 'Eaton',
+    category: 'ups',
+    image: '/assets/products/eaton-5a1200i-din.webp',
+    description:
+      'UPS line-interactive 1200VA/650W untuk daya cadangan perangkat elektronik.',
+    featured: true,
+  },
+  {
+    name: 'Eaton 9A UPS Advantage Series',
+    model: '9A Series',
+    brand: 'Eaton',
+    category: 'ups',
+    image: '/assets/products/eaton-9a-family.webp',
+    description:
+      'UPS online 1000–3000VA untuk server, jaringan, penyimpanan, dan perangkat kritis.',
     featured: false,
   },
   {
@@ -444,21 +480,21 @@ const segments = [
     icon: '/assets/icons/business.svg',
     title: 'Perusahaan & Bisnis',
     description:
-      'Perangkat IT, printer, display, proyektor, dan CCTV untuk mendukung operasional bisnis.',
+      'Perangkat IT, UPS, printer, display, proyektor, dan CCTV untuk mendukung operasional bisnis.',
   },
   {
     image: '/assets/images/segment-education.webp',
     icon: '/assets/icons/education.svg',
     title: 'Sekolah & Pendidikan',
     description:
-      'Printer, proyektor, layar, display interaktif, dan perangkat pendukung untuk kegiatan belajar.',
+      'Printer, proyektor, layar, display interaktif, UPS, dan perangkat pendukung untuk kegiatan belajar.',
   },
   {
     image: '/assets/images/segment-government.webp',
     icon: '/assets/icons/government.svg',
     title: 'Instansi Pemerintah',
     description:
-      'Perangkat kerja, presentasi, pencetakan, dan keamanan untuk mendukung operasional serta pelayanan instansi.',
+      'Perangkat kerja, presentasi, pencetakan, perlindungan daya, dan keamanan untuk mendukung pelayanan instansi.',
   },
 ];
 
@@ -556,10 +592,10 @@ const brands = [
     height: 425,
   },
   {
-    name: 'Hikvision',
-    logo: '/assets/brands/hikvision-logo.png',
-    width: 842,
-    height: 138,
+    name: 'Eaton',
+    logo: '/assets/brands/eaton-logo.png',
+    width: 1200,
+    height: 500,
   },
   {
     name: 'Uniarch',
@@ -1200,7 +1236,7 @@ export default function Home() {
                 <SectionHeading
                   eyebrow="Produk Pilihan"
                   title="Perangkat tepat untuk ruang yang bekerja lebih baik"
-                  description="Jelajahi CCTV, display interaktif, proyektor, printer, layar proyektor, serta bracket dan stand sesuai kebutuhan Anda."
+                  description="Jelajahi CCTV, UPS, display interaktif, proyektor, printer, layar proyektor, serta bracket dan stand sesuai kebutuhan Anda."
                   align="left"
                 />
               </Reveal>
