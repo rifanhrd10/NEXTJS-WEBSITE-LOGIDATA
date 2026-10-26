@@ -1635,9 +1635,17 @@ export default function Home() {
                     size={14}
                   />
                 </a>
+                <a href="tel:+62315016599" className="contact-link">
+                  <Phone aria-hidden="true" size={20} />
+                  <span>031-5016599</span>
+                </a>
                 <a href="tel:+62315016899" className="contact-link">
                   <Phone aria-hidden="true" size={20} />
                   <span>031-5016899</span>
+                </a>
+                <a href="tel:+6281332439064" className="contact-link">
+                  <Phone aria-hidden="true" size={20} />
+                  <span>0813-3243-9064</span>
                 </a>
                 <a href="mailto:info@logidata.id" className="contact-link">
                   <Mail aria-hidden="true" size={20} />
